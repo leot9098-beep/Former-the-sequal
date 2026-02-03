@@ -8,6 +8,7 @@ public class Random_former_JPanel extends javax.swing.JPanel {
 private static ArrayList<Forms> geomatri = new ArrayList<>();
 private int RandomForm;
 int Formchoice = 1;  
+File_manage_forms list = new File_manage_forms();
 
     /**
      * Creates new form Random_former_JPanel
@@ -72,8 +73,18 @@ int Formchoice = 1;
         });
 
         Save.setText("Spara");
+        Save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveActionPerformed(evt);
+            }
+        });
 
-        paste.setText("jButton1");
+        paste.setText("Hämta");
+        paste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pasteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -163,6 +174,15 @@ int Formchoice = 1;
     private void RektangelknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RektangelknappActionPerformed
         Formchoice = 3;
     }//GEN-LAST:event_RektangelknappActionPerformed
+
+    private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
+    list.saveToFile(geomatri);
+    
+    }//GEN-LAST:event_SaveActionPerformed
+
+    private void pasteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasteActionPerformed
+    geomatri=list.readfromfile();
+    }//GEN-LAST:event_pasteActionPerformed
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
