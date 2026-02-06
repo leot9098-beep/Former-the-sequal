@@ -1,8 +1,9 @@
 package former;
 
 import java.awt.Graphics;
+import java.io.Serializable;
 
-public abstract class Forms {
+public abstract class Forms implements Serializable {
 
     protected int KordX;
     protected int KordY;

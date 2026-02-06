@@ -38,7 +38,8 @@ public class File_manage_forms {
              }
              
              catch (IOException exe) {
-             System.out.println(":D");}
+             System.out.println("Kanin");}
+             
              catch (ClassNotFoundException exe) {
              System.out.println("ClassNotFoundException is caught");
              }

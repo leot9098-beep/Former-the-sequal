@@ -182,6 +182,7 @@ File_manage_forms list = new File_manage_forms();
 
     private void pasteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasteActionPerformed
     geomatri=list.readfromfile();
+    repaint();
     }//GEN-LAST:event_pasteActionPerformed
     @Override
     protected void paintComponent(Graphics g) {
