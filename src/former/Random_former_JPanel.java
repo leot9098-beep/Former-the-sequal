@@ -3,8 +3,7 @@ package former;
 import java.awt.Graphics;
 import java.awt.Color;
 import java.util.ArrayList;
-
-public class Random_former_JPanel extends javax.swing.JPanel {
+public class Random_former_JPanel extends javax.swing.JPanel implements Runnable {
 private static ArrayList<Forms> geomatri = new ArrayList<>();
 private int RandomForm;
 int Formchoice = 1;  
@@ -33,6 +32,8 @@ File_manage_forms list = new File_manage_forms();
         Rektangelknapp = new javax.swing.JRadioButton();
         Save = new javax.swing.JButton();
         paste = new javax.swing.JButton();
+        Animation = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -86,24 +87,48 @@ File_manage_forms list = new File_manage_forms();
             }
         });
 
+        Animation.setText("DANCE");
+        Animation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnimationActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("STOP IT!");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(Cirkelknapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(Cirkelknapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Triangelknapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Rektangelknapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Rensa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Save, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Triangelknapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Rektangelknapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Rensa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Save, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(paste, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(38, 38, 38))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(paste, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(38, 38, 38))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Animation)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +141,11 @@ File_manage_forms list = new File_manage_forms();
                     .addComponent(Rensa)
                     .addComponent(Save)
                     .addComponent(paste))
-                .addGap(450, 450, 450))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Animation)
+                    .addComponent(jButton1))
+                .addGap(421, 421, 421))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -184,6 +213,15 @@ File_manage_forms list = new File_manage_forms();
     geomatri=list.readfromfile();
     repaint();
     }//GEN-LAST:event_pasteActionPerformed
+
+    private void AnimationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnimationActionPerformed
+
+
+    }//GEN-LAST:event_AnimationActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -197,12 +235,40 @@ File_manage_forms list = new File_manage_forms();
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Animation;
     private javax.swing.JRadioButton Cirkelknapp;
     private javax.swing.JRadioButton Rektangelknapp;
     private javax.swing.JButton Rensa;
     private javax.swing.JButton Save;
     private javax.swing.JRadioButton Triangelknapp;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton paste;
     // End of variables declaration//GEN-END:variables
+private volatile Thread trad;
+    @Override 
+    public void run() 
+    {
+        Thread thisThread = Thread.currentThread();
+
+        
+while (trad == thisThread)
+{
+try {
+thisThread.sleep(800);
 }
+catch (InterruptedException e) {
+	
+}
+
+    if (trad==null){
+    
+    trad=new Thread(this);
+    trad.start();}
+    }
+    public void stop(){
+    if(trad!=null)
+        trad=null;}
+    }
+
+    
